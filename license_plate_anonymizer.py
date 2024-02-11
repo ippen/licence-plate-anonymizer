@@ -56,6 +56,7 @@ def load_model():
 
 def main():
     st.title("License Plate Anonymizer")
+    st.write("Easily anonymize license plates in images by uploading them and adjusting the blur strength slider. Anonymized images can be downloaded via the 'Download Anonymized Image' Button.")
     st.markdown(
         """
         <span style='font-size: 16px; padding-right: 10px; vertical-align: middle;'>Made by Lars Ippen</span>
