@@ -23,7 +23,7 @@ To run the application locally, follow these steps:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/license-plate-anonymizer.git
+git clone https://github.com/ippen/license-plate-anonymizer.git
 ```
 
 2. Navigate to the project directory:
