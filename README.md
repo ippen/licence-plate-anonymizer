@@ -1,1 +1,1 @@
-# licence-plate-anonymizer
+# license-plate-anonymizer
