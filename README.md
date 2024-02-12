@@ -2,6 +2,13 @@
 
 This application is designed to anonymize license plates in images. It utilizes a YOLO (You Only Look Once) object detection model to detect license plates in images and applies a Gaussian blur to anonymize them.
 
+# Deprecation Notice
+
+This repository has been deprecated in favor of a more comprehensive image anonymization solution. Please refer to the [Image Anonymizer](https://github.com/ippen/image-anonymizer) repository for the latest updates and features. The License Plate Anonymizer application has been integrated into the Image Anonymizer application, allowing for anonymization of various regions of interest, including license plates and faces.
+
+For historical purposes, you can still access the original License Plate Anonymizer application [here](https://license-plate-anonymizer.streamlit.app/), but please note that it will no longer receive updates or support.
+
+
 ## How it Works
 
 1. **Upload Image**: Users can upload an image containing license plates.

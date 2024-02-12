@@ -65,32 +65,29 @@ def main():
         [<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width=30 height=30 style='background-color: white; padding: 3px; border-radius: 3px;'>](https://github.com/ippen)
         """, unsafe_allow_html=True
     )
-    
+
+    # Deprecation notice
+    st.warning("This version of the application is deprecated. Please use the new [Image Anonymizer](https://image-anonymizer.streamlit.app/) for updated features and support.")
+
     # Display a file uploader widget
     uploaded_file = st.file_uploader("Choose a file", type=["jpeg", "jpg", "png", "webp"])
 
     blur_strength = st.slider("Blur Strength", min_value=0.0, max_value=100.0, value=10.0, step=0.1, format="%.1f", help="Set the strength of the blur effect. 0: no blur, 100: maximum blur.")
     #blur_strength = st.slider("Blur Strength", min_value=0.0, max_value=100.0, value=10.0, step=0.1)
 
-    # Check if the session state has 'detections', if not initialize it
-    if 'detections' not in st.session_state:
-        st.session_state.detections = None
-
-    if uploaded_file is not None:
-        # Open the uploaded image
-
+    if uploaded_file:
         # Load YOLO model
         yolo_model = load_model()
 
         # Always recalculate detections for a new uploaded image
         with st.spinner('Detecting license plates...'):
             # Get detections
-            st.session_state.detections = get_detections(uploaded_file, yolo_model)
+            detections = get_detections(uploaded_file, yolo_model)
 
         with st.spinner('Anonymizing...'):
             # Anonymize license plates and dynamically set blur strength
             image = Image.open(uploaded_file)
-            anonymized_image = anonymize_image(image, st.session_state.detections, blur_strength)
+            anonymized_image = anonymize_image(image, detections, blur_strength)
 
         # Display the anonymized image
         st.image(anonymized_image, caption="Anonymized Image", use_column_width=True)
